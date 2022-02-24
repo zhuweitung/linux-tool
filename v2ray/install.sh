@@ -152,10 +152,10 @@ install_v2ray() {
     cd /root/v2ray || exit
     wget -N --no-check-certificate https://raw.githubusercontent.com/zhuweitung/linux-tool/master/v2ray/install_v2ray.sh
 
-    if [[ -f v2ray.sh ]]; then
+    if [[ -f install_v2ray.sh ]]; then
         rm -rf $v2ray_systemd_file
         systemctl daemon-reload
-        bash v2ray.sh --force && systemctl daemon-reload
+        bash install_v2ray.sh --force && systemctl daemon-reload
         print "安装 V2ray"
     else
         echo -e "${Error} ${RedBG} V2ray 安装文件下载失败，请检查下载地址是否可用 ${Font}"
