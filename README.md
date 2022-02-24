@@ -58,7 +58,8 @@ bash <(curl -Ls https://raw.githubusercontent.com/BlueSkyXN/SpeedTestCN/main/sup
 ### 一键DD纯净系统
 
 ```bash
-apt-get install -y xz-utils openssl gawk file && bash <(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/MoeClub/Note/master/InstallNET.sh') -u 20.04 -v 64 -p "自定义root密码" -port "自定义s-s-h端口" -a
+apt-get install -y xz-utils openssl gawk file \
+&& bash <(curl -Ls https://raw.githubusercontent.com/MoeClub/Note/master/InstallNET.sh) -u 20.04 -v 64 -p "自定义root密码" -port "自定义ssh端口" -a
 ```
 
 *来源于[MoeClub/Note](https://github.com/MoeClub/Note)*
