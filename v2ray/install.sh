@@ -142,27 +142,13 @@ set_port() {
 
 # 安装v2ray
 install_v2ray() {
-    if [[ -d /root/v2ray ]]; then
-        rm -rf /root/v2ray
-    fi
     if [[ -d ${v2ray_conf_dir} ]]; then
         rm -rf ${v2ray_conf_dir}
     fi
-    mkdir -p /root/v2ray
-    cd /root/v2ray || exit
-    wget -N --no-check-certificate https://raw.githubusercontent.com/zhuweitung/linux-tool/master/v2ray/install_v2ray.sh
-
-    if [[ -f install_v2ray.sh ]]; then
-        rm -rf $v2ray_systemd_file
-        systemctl daemon-reload
-        bash install_v2ray.sh --force && systemctl daemon-reload
-        print "安装 V2ray"
-    else
-        echo -e "${Error} ${RedBG} V2ray 安装文件下载失败，请检查下载地址是否可用 ${Font}"
-        exit 4
-    fi
-    # 清除临时文件
-    rm -rf /root/v2ray
+    rm -rf $v2ray_systemd_file
+    systemctl daemon-reload
+    bash <(curl -Ls https://raw.githubusercontent.com/zhuweitung/linux-tool/master/v2ray/install_v2ray.sh) && systemctl daemon-reload
+    print "安装 V2ray"
 }
 
 # 检测nginx是否存在
@@ -179,8 +165,6 @@ check_nginx_exist() {
 nginx_install() {
     apt install -y nginx
     print "安装 nginx"
-    systemctl enable nginx
-    print "设置 nginx 自启"
 }
 
 # v2ray配置文件增加tls
@@ -272,7 +256,7 @@ EOF
 
 # 安装站点
 install_website() {
-    if [[ -f ${nginx_web_dir} ]]; then
+    if [[ -d ${nginx_web_dir} ]]; then
         rm -rf ${nginx_web_dir}
     fi
     git clone https://github.com/zhuweitung/3DCEList.git ${nginx_web_dir}
@@ -346,6 +330,8 @@ start_process_systemd() {
 enable_process_systemd() {
     systemctl enable v2ray
     print "设置 v2ray 开机自启"
+    systemctl enable nginx
+    print "设置 nginx 自启"
 }
 
 # 安装 vless+ws+tls
