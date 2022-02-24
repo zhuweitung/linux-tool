@@ -287,29 +287,25 @@ gen_v2ray_qr_config_file() {
 EOF
 }
 
-# 解析v2ray二维码配置文件
-extraction_v2ray_qr_config_file() {
-    grep "$1" $v2ray_qr_config_file | awk -F '"' '{print $4}'
-}
-
 # 生成v2ray配置信息
 gen_v2ray_info_file() {
+    vless_share_url="vless://${UUID}@${domain}:${port}?encryption=none&security=tls&type=ws&host=${domain}&path=${camouflage//\//%2f}#${domain}"
     {
-        echo -e "${OK} ${GreenBG} V2ray+ws+tls 安装成功 ${Font}"
-        echo -e "${Red} V2ray 配置信息 ${Font}"
-        echo -e "${Red} 地址（address）:${Font} $(extraction_v2ray_qr_config_file '\"add\"') "
-        echo -e "${Red} 端口（port）：${Font} $(extraction_v2ray_qr_config_file '\"port\"') "
-        echo -e "${Red} 用户id（UUID）：${Font} $(extraction_v2ray_qr_config_file '\"id\"')"
+        echo -e "${Red}V2ray 配置信息 ${Font}"
+        echo -e "${Red}地址（address）:${Font} ${domain} "
+        echo -e "${Red}端口（port）：${Font} ${port} "
+        echo -e "${Red}用户id（UUID）：${Font} ${UUID} "
 
         if [[ $(grep -ic 'VLESS' ${v2ray_conf}) == 0 ]]; then
-            echo -e "${Red} 额外id（alterId）：${Font} $(extraction_v2ray_qr_config_file '\"aid\"')"
+            echo -e "${Red}额外id（alterId）：${Font} ${alterID} "
         fi
 
-        echo -e "${Red} 加密（encryption）：${Font} none "
-        echo -e "${Red} 传输协议（network）：${Font} $(extraction_v2ray_qr_config_file '\"net\"') "
-        echo -e "${Red} 伪装类型（type）：${Font} none "
-        echo -e "${Red} 路径（不要落下/）：${Font} $(extraction_v2ray_qr_config_file '\"path\"') "
-        echo -e "${Red} 底层传输安全：${Font} tls "
+        echo -e "${Red}加密（encryption）：${Font} none "
+        echo -e "${Red}传输协议（network）：${Font} ws "
+        echo -e "${Red}伪装类型（type）：${Font} none "
+        echo -e "${Red}路径（不要落下/）：${Font} ${camouflage} "
+        echo -e "${Red}底层传输安全：${Font} tls "
+        echo -e "${Red}Vless 链接 ：${Font} ${vless_share_url} "
     } >"${v2ray_info_file}"
 }
 
