@@ -209,8 +209,10 @@ modify_UUID() {
 set_ssl_certificate() {
     read -rp "请输入证书文件路径:" ssl_certificate_path
     [[ -z ${ssl_certificate_path} ]] && exit
+    [[ ! -f ${ssl_certificate_path} ]] && echo -e "${Error} ${RedBG} 证书文件不存在，请提前准备好证书并放在指定目录下 ${Font}"
     read -rp "请输入证书密钥文件路径:" ssl_certificate_key_path
     [[ -z ${ssl_certificate_key_path} ]] && exit
+    [[ ! -f ${ssl_certificate_key_path} ]] && echo -e "${Error} ${RedBG} 证书密钥文件不存在，请提前准备好证书密钥并放在指定目录下 ${Font}"
 }
 
 # 新增nginx配置文件
@@ -334,7 +336,7 @@ enable_process_systemd() {
     systemctl enable v2ray
     print "设置 v2ray 开机自启"
     systemctl enable nginx
-    print "设置 nginx 自启"
+    print "设置 nginx 开机自启"
 }
 
 # 安装 vless+ws+tls
