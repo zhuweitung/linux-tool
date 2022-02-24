@@ -169,6 +169,9 @@ nginx_install() {
 
 # v2ray配置文件增加tls
 add_v2ray_conf_tls() {
+    if [[ ! -d ${v2ray_conf_dir} ]]; then
+        mkdir -p ${v2ray_conf_dir}
+    fi
     cd ${v2ray_conf_dir} || exit
     wget --no-check-certificate https://raw.githubusercontent.com/zhuweitung/linux-tool/master/v2ray/vless_tls_config.json -O ${v2ray_conf}
     modify_path
