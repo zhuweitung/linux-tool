@@ -305,6 +305,8 @@ gen_v2ray_info_file() {
         echo -e "${Red}伪装类型（type）：${Font} none "
         echo -e "${Red}路径（不要落下/）：${Font} ${camouflage} "
         echo -e "${Red}底层传输安全：${Font} tls "
+        echo -e "${Red}二维码: ${Font} "
+        echo -n "${vless_share_url}" | qrencode -o - -t utf8
         echo -e "${Red}Vless 链接 ：${Font} ${vless_share_url} "
     } >"${v2ray_info_file}"
 }
