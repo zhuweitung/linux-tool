@@ -9,6 +9,9 @@
       - [Route-trace 路由追踪测试](#route-trace-路由追踪测试)
       - [三网Speedtest测速](#三网speedtest测速)
     - [一键DD纯净系统](#一键dd纯净系统)
+    - [官方docker一键安装](#官方docker一键安装)
+    - [官方docker-compose安装(amd架构)](#官方docker-compose安装amd架构)
+    - [docker-compose安装(arm架构)](#docker-compose安装arm架构)
 
 ### vless ws tls nginx一键安装脚本
 
