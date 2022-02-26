@@ -15,12 +15,15 @@
 
 ### vless ws tls nginx一键安装脚本
 
-```bash
-# 安装
-# 需提前准备域名、证书文件、证书密钥文件
-bash <(curl -Ls https://raw.githubusercontent.com/zhuweitung/linux-tool/master/v2ray/install.sh)
++ 安装（需提前准备域名、证书文件、证书密钥文件）
 
-# 卸载
+```bash
+bash <(curl -Ls https://raw.githubusercontent.com/zhuweitung/linux-tool/master/v2ray/install.sh)
+```
+
++ 卸载
+
+```bash
 bash <(curl -Ls https://raw.githubusercontent.com/zhuweitung/linux-tool/master/v2ray/uninstall.sh)
 ```
 
