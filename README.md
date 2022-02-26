@@ -63,3 +63,40 @@ apt-get install -y xz-utils openssl gawk file \
 ```
 
 *来源于[MoeClub/Note](https://github.com/MoeClub/Note)*
+
+
+
+### 官方docker一键安装
+
+```bash
+bash <(curl -Ls https://get.docker.com)
+docker -v
+systemctl enable docker
+```
+
+来源于[Install Docker Engine on Ubuntu | Docker Documentation](https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script)
+
+
+
+### 官方docker-compose安装(amd架构)
+
+```bash
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+docker-compose --version
+```
+
+来源于[Install Docker Compose | Docker Documentation](https://docs.docker.com/compose/install/#install-compose-on-linux-systems)
+
+
+
+### docker-compose安装(arm架构)
+
+```bash
+sudo curl -L "https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-$(uname -s | tr '[A-Z]' '[a-z]')-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+docker-compose --version
+```
+
