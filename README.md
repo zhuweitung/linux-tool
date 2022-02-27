@@ -3,6 +3,7 @@
 
 - [Linux 脚本工具箱](#linux-脚本工具箱)
     - [vless ws tls nginx一键安装脚本](#vless-ws-tls-nginx一键安装脚本)
+    - [一键开启允许root密码连接ssh](#一键开启允许root密码连接ssh)
     - [Sky-Box工具箱实用脚本](#sky-box工具箱实用脚本)
       - [BBR一键管理脚本](#bbr一键管理脚本)
       - [SWAP一键安装/卸载脚本](#swap一键安装卸载脚本)
@@ -28,6 +29,14 @@ bash <(curl -Ls https://raw.githubusercontent.com/zhuweitung/linux-tool/master/v
 ```
 
 *本脚本基于[wulabing/V2Ray_ws-tls_bash_onekey](https://github.com/wulabing/V2Ray_ws-tls_bash_onekey)修改*
+
+
+
+### 一键开启允许root密码连接ssh
+
+```bash
+sudo bash <(curl -Ls https://raw.githubusercontent.com/zhuweitung/linux-tool/master/ssh/ssh.sh)
+```
 
 
 
