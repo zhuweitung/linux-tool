@@ -34,6 +34,8 @@ bash <(curl -Ls https://raw.githubusercontent.com/zhuweitung/linux-tool/master/v
 
 ### 一键开启允许root密码连接ssh
 
+需先给root设置好密码
+
 ```bash
 sudo bash <(curl -Ls https://raw.githubusercontent.com/zhuweitung/linux-tool/master/ssh/ssh.sh)
 ```

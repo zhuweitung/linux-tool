@@ -82,6 +82,11 @@ install_dependency() {
     print "安装 依赖"
 }
 
+# 设置时区
+set_timezone() {
+    timedatectl set-timezone Asia/Shanghai
+}
+
 # 基础优化
 optimize_system() {
     # 最大文件打开数
@@ -342,6 +347,7 @@ install_v2ray_ws_tls() {
     check_root
     check_system
     install_dependency
+    set_timezone
     optimize_system
     check_domain
     check_old_config_exist
