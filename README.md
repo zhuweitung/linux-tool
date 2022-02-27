@@ -42,6 +42,22 @@ sudo bash <(curl -Ls https://raw.githubusercontent.com/zhuweitung/linux-tool/mas
 
 
 
+### 修改ll别名
+
+```bash
+bash <(curl -Ls https://raw.githubusercontent.com/zhuweitung/linux-tool/master/normal/update_ll_alias.sh)
+```
+
+
+
+### 修改nezha-agent参数
+
+```bash
+bash <(curl -Ls https://raw.githubusercontent.com/zhuweitung/linux-tool/master/nezha/update_agent_config.sh)
+```
+
+
+
 ### Sky-Box工具箱实用脚本
 
 #### BBR一键管理脚本
