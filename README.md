@@ -4,6 +4,9 @@
 - [Linux 脚本工具箱](#linux-脚本工具箱)
     - [vless ws tls nginx一键安装脚本](#vless-ws-tls-nginx一键安装脚本)
     - [一键开启允许root密码连接ssh](#一键开启允许root密码连接ssh)
+    - [修改ll别名](#修改ll别名)
+    - [修改nezha-agent参数](#修改nezha-agent参数)
+    - [一键安装acme.sh](#一键安装acmesh)
     - [Sky-Box工具箱实用脚本](#sky-box工具箱实用脚本)
       - [BBR一键管理脚本](#bbr一键管理脚本)
       - [SWAP一键安装/卸载脚本](#swap一键安装卸载脚本)
@@ -54,6 +57,16 @@ bash <(curl -Ls https://raw.githubusercontent.com/zhuweitung/linux-tool/master/n
 
 ```bash
 bash <(curl -Ls https://raw.githubusercontent.com/zhuweitung/linux-tool/master/nezha/update_agent_config.sh)
+```
+
+
+
+### 一键安装acme.sh
+
+用于生成证书，邮箱需要修改为自己的邮箱
+
+```bash
+curl https://get.acme.sh | sh -s email=my@example.com
 ```
 
 
