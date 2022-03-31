@@ -102,12 +102,24 @@ optimize_system() {
     fi
 }
 
+is_ip() {
+    regex='^(2[0-4][0-9]|25[0-5]|1[0-9][0-9]|[1-9]?[0-9])(\.(2[0-4][0-9]|25[0-5]|1[0-9][0-9]|[1-9]?[0-9])){3}$'
+    num=$(echo $1 | egrep $regex | wc -l)
+    if [ ${num} -eq 0 ]; then
+        echo ""
+    else
+        echo $1
+    fi
+}
+
 # 域名解析检测
 check_domain() {
     read -rp "请输入你的域名信息(eg:www.kedr.cc):" domain
     domain_ip=$(ping "${domain}" -c 1 | sed '1{s/[^(]*(//;s/).*//;q}')
     echo -e "${OK} ${GreenBG} 正在获取 公网ip 信息，请耐心等待 ${Font}"
     local_ip=$(curl https://api-ipv4.ip.sb/ip)
+    is_ipv4=$(is_ip ${local_ip})
+    [[ -z ${is_ipv4} ]] && local_ip=$(curl https://api.ipify.org/)
     echo -e "域名dns解析IP：${domain_ip}"
     echo -e "本机IP: ${local_ip}"
     sleep 2
