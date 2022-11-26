@@ -71,6 +71,14 @@ curl https://get.acme.sh | sh -s email=my@example.com
 
 
 
+### 一键测试脚本
+
+```bash
+wget -qO- bench.sh | bash
+```
+
+
+
 ### Sky-Box工具箱实用脚本
 
 #### BBR一键管理脚本
