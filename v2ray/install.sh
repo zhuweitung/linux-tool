@@ -164,7 +164,7 @@ install_v2ray() {
     fi
     rm -rf $v2ray_systemd_file
     systemctl daemon-reload
-    bash <(curl -Ls https://github.com/wulabing/V2Ray_ws-tls_bash_onekey/raw/master/v2ray.sh) --force && systemctl daemon-reload
+    bash <(curl -Ls https://raw.githubusercontent.com/wulabing/V2Ray_ws-tls_bash_onekey/master/v2ray.sh) --force && systemctl daemon-reload
     print "安装 V2ray"
 }
 
