@@ -164,7 +164,7 @@ install_v2ray() {
     fi
     rm -rf $v2ray_systemd_file
     systemctl daemon-reload
-    bash <(curl -Ls https://raw.githubusercontent.com/zhuweitung/linux-tool/master/v2ray/install_v2ray.sh) && systemctl daemon-reload
+    bash <(curl -Ls https://github.com/wulabing/V2Ray_ws-tls_bash_onekey/raw/master/v2ray.sh) --force && systemctl daemon-reload
     print "安装 V2ray"
 }
 
@@ -190,7 +190,7 @@ add_v2ray_conf_tls() {
         mkdir -p ${v2ray_conf_dir}
     fi
     cd ${v2ray_conf_dir} || exit
-    wget --no-check-certificate https://raw.githubusercontent.com/zhuweitung/linux-tool/master/v2ray/vless_tls_config.json -O ${v2ray_conf}
+    wget --no-check-certificate https://raw.githubusercontent.com/wulabing/V2Ray_ws-tls_bash_onekey/master/tls/config.json -O ${v2ray_conf}
     modify_path
     modify_inbound_port
     modify_UUID
