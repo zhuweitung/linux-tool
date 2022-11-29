@@ -75,6 +75,8 @@ curl https://get.acme.sh | sh -s email=my@example.com
 
 ```bash
 wget -qO- bench.sh | bash
+# or
+wget -qO- yabs.sh | bash
 ```
 
 
